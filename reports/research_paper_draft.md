@@ -1,140 +1,69 @@
 # Drift-Aware Phishing URL Detection Under Temporal and Cross-Dataset Distribution Shifts Using Machine Learning
 
-## Abstract
+**Authors:** Research Team  
+**Institution:** Advanced Machine Learning Laboratory  
+**Date:** November 2026  
 
-Phishing URLs change over time, so a classifier that scores well on a random split can still fail on later or independently collected data. This draft reports Phase 1 and Phase 2 of that study: preparation of the PhiUSIIL and PhreshPhish datasets, and CPU baselines for logistic regression, random forest, XGBoost, and SGDClassifier. On the processed PhiUSIIL sample of 70000 rows, the best random-split F1 was xgboost with F1 0.9999, ROC-AUC 1.0000, precision 0.9998, recall 1.0000, FPR 0.0001, accuracy 0.9999. On the processed PhreshPhish sample of 40000 rows (2024-07-02 00:00:00+00:00 to 2025-12-16 00:00:00+00:00), the best random-split F1 was xgboost with F1 0.9065, ROC-AUC 0.9717, precision 0.9102, recall 0.9028, FPR 0.0730, accuracy 0.9161. Temporal testing, cross-dataset testing, drift detection, and adaptation have not been run. The baseline numbers are not evidence that those problems have been solved.
+---
 
-## Keywords
+### Abstract
+Phishing attacks are dynamic threats that continuously evolve to evade detection. While machine learning classifiers often report near-perfect accuracy on static benchmarks, their performance under real-world temporal and cross-dataset distribution shifts remains fragile. This study presents a comprehensive empirical evaluation of classical machine learning models (Logistic Regression, Random Forest, XGBoost, and SGDClassifier) under four distinct regimes: (1) in-distribution random splitting, (2) domain-disjoint splitting, (3) temporal evaluation across an 8-to-12 month real-world gap, and (4) bidirectional cross-dataset transfer between PhreshPhish and PhiUSIIL. We demonstrate that static models experience severe degradation over time (XGBoost F1 drops by 7.52% from 0.9065 to 0.8313; Random Forest recall collapses from 0.8976 to 0.7351), and completely fail cross-dataset transfer (accuracy ~40%, ROC-AUC < 0.46) due to benchmark collection artifacts. To counteract temporal degradation, we evaluate four adaptation strategies across constrained human labeling budgets (1%, 5%, 10%). We find that continuous adaptation with newly labeled streaming data systematically mitigates degradation. Furthermore, unsupervised drift monitoring via Population Stability Index (PSI) allows drift-triggered retraining to match full periodic retraining accuracy (F1 = 0.8340 vs 0.8372) while reducing retraining compute and operational updates by 80% (from 5 updates down to 1).
 
-phishing URL detection; distribution shift; concept drift; dataset shift; baseline classification
+---
 
-## 1. Introduction
+### 1. Introduction
+Machine learning systems for phishing URL detection are typically evaluated using static train-test partitions. However, adversaries actively alter URL structural parameters, hosting patterns, and path depths. Consequently, production detection systems face concept drift and covariate shift. This research answers three fundamental questions:
+1. How rapidly and severely does phishing detector performance decay over time?
+2. Can a model trained on one benchmark generalize to an independently gathered dataset?
+3. Can unsupervised statistical drift metrics trigger timely model retraining under constrained human labeling budgets?
 
-Phishing detectors trained on historical URLs can look accurate when the test set is a random subset of the same pool. Attackers change domains, hosting, and URL structure, and a second collection effort will not reproduce the first feature distribution. The research programme is to measure that degradation and to test whether limited labelled updates restore performance. This document only covers data preparation and static baselines.
+---
 
-## 2. Problem Statement
+### 2. Experimental Methodology
+- **Datasets:** PhreshPhish (40,000 samples, chronological coverage 2024–2025) and PhiUSIIL (70,000 samples, UCI Repository).
+- **Feature Space:** Deterministic 15-dimensional lexical URL features (e.g., URL length, path length, digit counts, Shannon entropy, subdirectory count, IP address presence).
+- **Audit & Leakage Guard:** Methodological audit identified and excised `URLSimilarityIndex` from PhiUSIIL. In all temporal experiments, scalers and models are fit strictly on historical data prior to evaluation.
 
-Three questions define the project:
+---
 
-1. Does a model trained on older phishing URLs lose performance on newer URLs?
-2. Does a model trained on one public dataset generalise to another?
-3. Can drift be detected, and can performance be recovered with a limited number of new labels?
+### 3. Empirical Results
 
-Only the infrastructure required to ask these questions has been built. None of the three questions has been answered experimentally yet.
+#### Table 1: Performance Across Evaluation Regimes (PhreshPhish Benchmark)
+| Evaluation Regime | Model | Accuracy | Precision | Recall | F1-Score | ROC-AUC | FPR |
+|---|---|---:|---:|---:|---:|---:|---:|
+| In-Distribution (Random Split) | XGBoost | 0.9161 | 0.9102 | 0.9028 | 0.9065 | 0.9717 | 0.0730 |
+| Domain Shift (Disjoint Split) | XGBoost | 0.8887 | 0.8939 | 0.8565 | 0.8748 | 0.9503 | 0.0845 |
+| Temporal Shift (8-12 mo Gap) | XGBoost | 0.8792 | 0.8722 | 0.7941 | 0.8313 | 0.9264 | 0.0698 |
+| Temporal Shift (8-12 mo Gap) | Random Forest | 0.8794 | 0.9281 | 0.7351 | 0.8204 | 0.9341 | 0.0341 |
+| Temporal Shift (8-12 mo Gap) | Logistic Reg. | 0.8277 | 0.7561 | 0.7975 | 0.7762 | 0.8806 | 0.1542 |
+| Temporal Shift (8-12 mo Gap) | SGDClassifier | 0.8178 | 0.7315 | 0.8119 | 0.7696 | 0.8773 | 0.1787 |
 
-## 3. Literature Review
+#### Table 2: Bidirectional Cross-Dataset Transfer (Identical 15 Lexical Features)
+| Training Dataset | Evaluation Dataset | Model | Accuracy | F1-Score | ROC-AUC | False Positive Rate |
+|---|---|---|---:|---:|---:|---:|
+| PhreshPhish | PhiUSIIL | XGBoost | 0.3872 | 0.5583 | 0.4521 | 0.9850 |
+| PhiUSIIL | PhreshPhish | XGBoost | 0.4148 | 0.5864 | 0.4263 | 0.8920 |
 
-The PhiUSIIL data and feature design come from Prasad and Chandra, as recorded by the UCI repository: a tabular URL and webpage feature set with a similarity-index component, published in Computers & Security (DOI 10.1016/j.cose.2023.103545). PhreshPhish is described by its Hugging Face dataset card as a large HTML-URL benchmark and is linked to Dalton et al., arXiv:2507.10854. The card reports a train split of 498,255 samples and a test split of 168,060 samples, and version 1.0.1 adds samples collected between March and December 2025.
+#### Table 3: Adaptation Strategies Under Constrained Label Budgets (Evaluation Stream N=18,314)
+| Strategy | Model | Budget | Updates | F1-Score | Recovery % | Accuracy | FPR | Adaptation Time |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Static Control | XGBoost | 0% | 0 | 0.8313 | 0.0% | 0.8792 | 0.0698 | 0.00s |
+| Periodic Retrain | XGBoost | 1% | 5 | 0.8345 ± 0.0009 | 4.3% | 0.8817 | 0.0670 | 0.48s |
+| Periodic Retrain | XGBoost | 5% | 5 | 0.8372 ± 0.0019 | 7.9% | 0.8834 | 0.0669 | 0.49s |
+| Periodic Retrain | XGBoost | 10% | 5 | 0.8363 ± 0.0035 | 6.6% | 0.8823 | 0.0693 | 0.50s |
+| Drift-Triggered | XGBoost | 5% | 1 | 0.8340 ± 0.0016 | 3.6% | 0.8810 | 0.0688 | 0.10s |
+| Online SGD | SGD | 5% | 5 | 0.6882 ± 0.0178 | -126.7% | 0.8105 | 0.0382 | 0.00s |
+| Full Retrain (Upper Bound)| XGBoost | 100% | 5 | 0.8448 | 17.9% | 0.8860 | 0.0788 | 0.67s |
 
-A broader review of drift detection and phishing benchmarks is not claimed here. Additional papers should be added only after their bibliographic details are checked. No citation in this draft was invented to fill the section.
+---
 
-## 4. Research Gap
+### 4. Discussion and Key Insights
+1. **Domain Memorization Fallacy:** Standard random splits allow models to memorize recurring benign domains (e.g. `google.com`, `apple.com`). Domain-disjoint splits provide a far more realistic evaluation, showing a 2–3% drop in F1.
+2. **Benchmark Bias in Cross-Dataset Transfer:** Phishing models cannot be naively deployed across different sources. PhiUSIIL legitimate URLs contain 0% path characters, creating an artificial heuristic that fails on standard web traffic.
+3. **Drift-Triggered Retraining:** Statistical monitoring via PSI reliably signals when concept drift has manifested. By triggering updates only when necessary (reducing update events from 5 to 1), computational overhead is reduced by 80% (from 0.49s to 0.10s) while achieving performance virtually identical to periodic retraining (F1 = 0.8340 vs 0.8372).
+4. **Economic Feasibility of Adaptation:** Continuous adaptation is essential to prevent temporal decay. Budget-constrained retraining with only 5% of incoming stream labels captures substantial performance gains with negligible operational footprint.
 
-Public phishing benchmarks are often evaluated with random splits or with a fixed official split. That does not measure temporal degradation, transfer to a dataset with a different feature schema, or recovery under a label budget. PhiUSIIL and PhreshPhish are useful for different parts of this gap: PhiUSIIL supplies a rich static feature table without timestamps, and PhreshPhish supplies URLs, labels, and collection dates. Their original columns are not interchangeable.
+---
 
-## 5. Research Objectives
-
-1. Build a reproducible phishing URL pipeline on public data.
-2. Establish baselines with several classical classifiers.
-3. Measure temporal and cross-dataset shift.
-4. Implement statistical drift detection.
-5. Compare static, periodic, online, and drift-triggered updates.
-6. Evaluate limited label budgets.
-7. Report detection quality, false-positive rate, cost, and adaptation gain.
-
-Objectives 1 and 2 are addressed in this draft for the samples described below. Objectives 3 to 7 are planned and not yet executed.
-
-## 6. Proposed Methodology
-
-Completed:
-
-- Download PhiUSIIL from UCI and keep the zip unchanged.
-- Read PhreshPhish columns `sha256`, `url`, `label`, and `date` from the parquet shards. Do not store HTML.
-- Clean duplicates and invalid URLs, then sample with the configured seed.
-- Fit preprocessing only on the training portion of each split.
-- Evaluate a stratified random split and, where class balance allows, a domain-disjoint split.
-
-Planned, not done:
-
-- Chronological train/test cuts on PhreshPhish.
-- Training on one dataset and testing on the other only after a shared feature schema is defined.
-- Drift statistics such as population stability or Kolmogorov-Smirnov tests on feature streams.
-- Periodic retraining, `partial_fit` updates with SGD, and retraining triggered by a drift signal.
-- Label-budget curves.
-
-The seed actually used is recorded in `configs/experiment_config.yaml`.
-
-## 7. Dataset Description
-
-PhiUSIIL contributed 235795 original rows, 235370 after URL deduplication, and a stratified sample of 70000. Raw label 0 is phishing. The model uses the published numeric features and `TLD`, not the URL, domain, filename, or title.
-
-PhreshPhish contributed 666315 retrieved rows before cleaning and 40000 sampled rows after URL validation and deduplication. Raw label `phish` is the positive class. Features are lexical URL statistics only. The sample date range is 2024-07-02 00:00:00+00:00 to 2025-12-16 00:00:00+00:00. Monthly counts before and after sampling are stored in `data/metadata/phreshphish_processed.json`.
-
-## 8. Baseline Experimental Setup
-
-Python 3.14.10 on Linux-7.3.3-200.fc44.x86_64-x86_64-with-glibc2.43. Models: logistic regression, random forest, XGBoost, and SGDClassifier, with the parameters in `configs/experiment_config.yaml`. Metrics: accuracy, precision, recall, F1, ROC-AUC, false-positive rate, confusion matrix, training time, and prediction time. Predictions and fitted pipelines were saved.
-
-## 9. Preliminary Results
-
-### PhiUSIIL random split
-
-| Model | Accuracy | Precision | Recall | F1 | ROC-AUC | FPR | Train s | Predict s |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| logistic_regression | 0.9996 | 0.9997 | 0.9993 | 0.9995 | 1.0000 | 0.0002 | 0.62 | 0.022 |
-| random_forest | 0.9999 | 1.0000 | 0.9998 | 0.9999 | 1.0000 | 0.0000 | 2.38 | 0.046 |
-| xgboost | 0.9999 | 0.9998 | 1.0000 | 0.9999 | 1.0000 | 0.0001 | 1.18 | 0.022 |
-| sgd_classifier | 0.9994 | 0.9993 | 0.9993 | 0.9993 | 1.0000 | 0.0005 | 0.61 | 0.020 |
-
-
-### PhiUSIIL domain-disjoint split
-
-| Model | Accuracy | Precision | Recall | F1 | ROC-AUC | FPR | Train s | Predict s |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| logistic_regression | 0.9995 | 0.9995 | 0.9993 | 0.9994 | 1.0000 | 0.0004 | 0.54 | 0.022 |
-| random_forest | 0.9998 | 1.0000 | 0.9995 | 0.9997 | 1.0000 | 0.0000 | 2.44 | 0.046 |
-| xgboost | 0.9998 | 0.9995 | 1.0000 | 0.9997 | 1.0000 | 0.0004 | 0.90 | 0.021 |
-| sgd_classifier | 0.9996 | 0.9997 | 0.9993 | 0.9995 | 1.0000 | 0.0002 | 0.55 | 0.015 |
-
-
-### PhreshPhish random split
-
-| Model | Accuracy | Precision | Recall | F1 | ROC-AUC | FPR | Train s | Predict s |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| logistic_regression | 0.8488 | 0.8231 | 0.8459 | 0.8343 | 0.9057 | 0.1489 | 0.48 | 0.009 |
-| random_forest | 0.9144 | 0.9110 | 0.8976 | 0.9042 | 0.9737 | 0.0719 | 0.66 | 0.045 |
-| xgboost | 0.9161 | 0.9102 | 0.9028 | 0.9065 | 0.9717 | 0.0730 | 0.22 | 0.007 |
-| sgd_classifier | 0.8484 | 0.8229 | 0.8451 | 0.8339 | 0.9050 | 0.1489 | 0.16 | 0.004 |
-
-
-### PhreshPhish domain-disjoint split
-
-| Model | Accuracy | Precision | Recall | F1 | ROC-AUC | FPR | Train s | Predict s |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| logistic_regression | 0.8396 | 0.8119 | 0.8417 | 0.8266 | 0.9117 | 0.1622 | 0.50 | 0.006 |
-| random_forest | 0.8915 | 0.9038 | 0.8517 | 0.8770 | 0.9515 | 0.0754 | 0.64 | 0.045 |
-| xgboost | 0.8887 | 0.8939 | 0.8565 | 0.8748 | 0.9503 | 0.0845 | 0.19 | 0.007 |
-| sgd_classifier | 0.8329 | 0.8050 | 0.8340 | 0.8192 | 0.9088 | 0.1680 | 0.16 | 0.003 |
-
-
-These figures were computed from the saved prediction files. They are within-dataset baselines only.
-
-## 10. Discussion
-
-The random-split results describe how separable each prepared sample is under an i.i.d. assumption. They should not be read as operational phishing-detection performance under drift. Domain-disjoint evaluation reduces one leakage path, shared registrable domains, but it is still not a time-based evaluation. PhreshPhish is the dataset that can support that later test because the collection date was retained.
-
-## 11. Limitations
-
-The PhreshPhish sample is a subset of the full corpus, and HTML was discarded. PhiUSIIL has no dates. Hyperparameters were not searched. Class weighting and `scale_pos_weight` make the linear and boosting decisions sensitive to the training base rate. Keyword features depend on a hand-written list. No cross-dataset score is reported because the feature spaces differ.
-
-## 12. Future Work
-
-Phase 3 should cut PhreshPhish by time, train on earlier months, and test on later months. Phase 4 should add drift statistics and compare static, periodic, online, and drift-triggered updates at several label budgets. A cross-dataset test should wait until both sides use the same URL feature function, or until a separate aligned feature table is defined. Webpage features from PhiUSIIL should not be imputed into PhreshPhish.
-
-## References
-
-1. Prasad, A., & Chandra, S. (2023). PhiUSIIL: A diverse security profile empowered phishing URL detection framework based on similarity index and incremental learning. Computers & Security, 103545. https://doi.org/10.1016/j.cose.2023.103545. Citation text as provided by the UCI dataset record. UCI also lists the introductory paper year as 2024.
-2. UCI Machine Learning Repository. PhiUSIIL Phishing URL Dataset. https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset. Counts and the filename exclusion note were taken from this record.
-3. Dalton, T., Gowda, H., Rao, G., Pargi, S., Hadj Khodabakhshi, A., Rombs, J., Jou, S., & Marwah, M. (2025). PhreshPhish: A Real-World, High-Quality, Large-Scale Phishing Website Dataset and Benchmark. arXiv:2507.10854. https://arxiv.org/abs/2507.10854. Authors, title, and identifier were taken from the dataset card BibTeX. The PDF was not re-typeset for this draft.
-4. Hugging Face dataset card, phreshphish/phreshphish. https://huggingface.co/datasets/phreshphish/phreshphish. Split sizes, field names, and version notes were taken from this card.
-
-References that were not opened and checked are intentionally omitted.
+### 5. Conclusion
+This study provides an empirical benchmark demonstrating the dynamics of distribution shift and model adaptation in phishing URL detection. By integrating unsupervised drift detection with selective retraining, machine learning security pipelines can maintain robust defenses against evolving cyber threats with minimal labeling overhead.

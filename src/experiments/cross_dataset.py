@@ -121,7 +121,7 @@ def run_cross_dataset_evaluation(config: dict | None = None) -> dict:
 
         key_a = f"train_phreshphish__test_phiusiil__{model_name}"
         save_predictions(preds_dir / f"{key_a}.parquet", y_phi, pred_a, prob_a)
-        save_confusion_artifacts(graphs_dir, key_a, metrics_a["confusion_matrix"])
+        save_confusion_artifacts(out_base, key_a, metrics_a["confusion_matrix"])
         curves_a[model_name] = (y_phi.to_numpy(), prob_a)
 
         results.append({
@@ -153,7 +153,7 @@ def run_cross_dataset_evaluation(config: dict | None = None) -> dict:
 
         key_b = f"train_phiusiil__test_phreshphish__{model_name}"
         save_predictions(preds_dir / f"{key_b}.parquet", y_phresh, pred_b, prob_b)
-        save_confusion_artifacts(graphs_dir, key_b, metrics_b["confusion_matrix"])
+        save_confusion_artifacts(out_base, key_b, metrics_b["confusion_matrix"])
         curves_b[model_name] = (y_phresh.to_numpy(), prob_b)
 
         results.append({
@@ -176,8 +176,8 @@ def run_cross_dataset_evaluation(config: dict | None = None) -> dict:
     (metrics_dir / "cross_dataset_summary.json").write_text(json.dumps(summary_payload, indent=2))
 
     # ROC plots
-    plot_roc_curves(graphs_dir, "cross_dataset__train_phresh_test_phi", curves_a)
-    plot_roc_curves(graphs_dir, "cross_dataset__train_phi_test_phresh", curves_b)
+    plot_roc_curves(out_base, "cross_dataset__train_phresh_test_phi", curves_a)
+    plot_roc_curves(out_base, "cross_dataset__train_phi_test_phresh", curves_b)
 
     # Cross-dataset vs within-dataset comparison chart
     _plot_cross_dataset_comparison(results_dir, graphs_dir, res_df)

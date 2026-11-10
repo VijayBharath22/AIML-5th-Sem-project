@@ -96,7 +96,7 @@ def run_temporal_evaluation(config: dict | None = None) -> dict:
 
         # Save predictions and confusion matrix
         save_predictions(preds_dir / f"{key}.parquet", y_test, predictions, probabilities)
-        save_confusion_artifacts(graphs_dir, key, metrics["confusion_matrix"])
+        save_confusion_artifacts(out_base, key, metrics["confusion_matrix"])
         curves[model_name] = (y_test.to_numpy(), probabilities)
 
         rec = {
@@ -143,7 +143,7 @@ def run_temporal_evaluation(config: dict | None = None) -> dict:
     month_df.to_csv(metrics_dir / "temporal_monthly_metrics.csv", index=False)
 
     # Plot ROC curves
-    plot_roc_curves(graphs_dir, "temporal_future_eval", curves)
+    plot_roc_curves(out_base, "temporal_future_eval", curves)
 
     # Plot Degradation Bar Chart vs Phase 2 Baselines
     _plot_temporal_degradation(results_dir, graphs_dir, agg_df)

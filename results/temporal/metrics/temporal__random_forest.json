@@ -1,0 +1,46 @@
+{
+  "model": "random_forest",
+  "train_months": [
+    "2024-08",
+    "2024-09",
+    "2024-10"
+  ],
+  "test_months": [
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11"
+  ],
+  "n_train": 14525,
+  "n_test": 18314,
+  "accuracy": 0.879381893633286,
+  "precision": 0.9280853411807982,
+  "recall": 0.7351398601398601,
+  "f1": 0.8204211039752866,
+  "false_positive_rate": 0.03414847161572052,
+  "support_positive": 6864,
+  "support_negative": 11450,
+  "confusion_matrix_labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      11059,
+      391
+    ],
+    [
+      1818,
+      5046
+    ]
+  ],
+  "true_negative": 11059,
+  "false_positive": 391,
+  "false_negative": 1818,
+  "true_positive": 5046,
+  "roc_auc": 0.9340585969707149,
+  "train_seconds": 0.32585193300110404,
+  "predict_seconds": 0.07161522599926684
+}

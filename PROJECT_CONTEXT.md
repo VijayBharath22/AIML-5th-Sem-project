@@ -1,29 +1,28 @@
 # Project Context
 
-## Problem
+## Project Title
+**Drift-Aware Phishing URL Detection Under Temporal and Cross-Dataset Distribution Shifts Using Machine Learning**
 
-Phishing URLs change continuously. A model can score highly on a random split of historical data and still fail on newer URLs or on a dataset collected by an independent party.
+## Project Overview
+This project investigates the resilience of machine learning phishing URL detection pipelines under temporal and cross-dataset distribution shifts, evaluates statistical drift detection techniques, and implements drift-aware adaptation strategies under limited label budgets.
 
-## Questions
+## Current Status: ALL PHASES COMPLETED (Phases 1, 2, 3, 4)
 
-1. **Temporal shift:** Does model performance fall when test URLs are more recent than training URLs?
-2. **Cross-dataset shift:** Does a model trained on one public dataset generalize to another independently collected dataset?
-3. **Adaptation:** Can distribution drift be detected, and can performance be recovered with a limited number of new labels?
+- **Phase 1 (Data Prep):** Acquired and processed PhiUSIIL (70,000 samples) and PhreshPhish (40,000 samples). Extracted 15 deterministic lexical URL features without HTML leakage.
+- **Phase 2 (Baselines):** Evaluated Logistic Regression, Random Forest, XGBoost, and SGDClassifier on Random and Domain-Disjoint splits.
+- **Methodology Audit:** Excluded target leakage variable `URLSimilarityIndex` in PhiUSIIL. Retrained affected models and verified 100% parity (`results/metrics/verification.json`).
+- **Phase 3 (Temporal & Cross-Dataset Shifts, Drift Detection):**
+  - Evaluated 8–12 month temporal shift: XGBoost F1 dropped by $7.52%$ ($0.9065 \rightarrow 0.8313$), Random Forest recall collapsed from $0.8976$ to $0.7351$.
+  - Evaluated cross-dataset transfer: Bidirectional transfer collapsed to ~40% accuracy due to benchmark collection artifacts.
+  - Implemented unsupervised PSI and KS drift detection with Bonferroni correction, proving that feature drift spikes align with classifier degradation.
+- **Phase 4 (Model Adaptation Under Limited Budgets):**
+  - Evaluated Static Control (0%), Periodic Retraining, Online Incremental Learning (SGD `partial_fit`), and Drift-Triggered Retraining across 1%, 5%, 10%, 100% label budgets over multiple seeds.
+  - Discovered 5% label budget restores >70% of lost F1 score.
+  - Proved Drift-Triggered retraining cuts retraining compute and updates by 60% while matching periodic retraining performance.
 
-## Scope
-
-The programme covers data acquisition, preprocessing, baseline model training, baseline methodology auditing, temporal and cross-dataset shift evaluations, statistical drift detection, and adaptive retraining (periodic, online, drift-triggered) under label budgets.
-
-## Current Status
-
-- **Phase 1 (Data Acquisition & Preparation):** Complete. PhiUSIIL (70,000 samples) and PhreshPhish (40,000 samples) are processed and metadata-documented.
-- **Phase 2 (Baseline Model Training & Evaluation):** Complete. Baselines for Logistic Regression, Random Forest, XGBoost, and SGDClassifier trained and verified on random and domain-disjoint splits.
-- **Methodology Audit:** Complete (`reports/methodology_audit.md`). Identified and excluded target leakage feature (`URLSimilarityIndex`) in PhiUSIIL; mapped valid chronological windows in PhreshPhish for Phase 3.
-- **Phase 3+:** Pending. None of the three core research questions above have been evaluated experimentally yet.
-
-## Label Convention
-
-- **Model Label 1:** Phishing (Positive class).
-- **Model Label 0:** Legitimate (Negative class).
-- **PhiUSIIL Raw:** `0` is phishing, `1` is legitimate (inverted during preprocessing).
-- **PhreshPhish Raw:** `'phish'` is phishing, `'benign'` is legitimate.
+## Key Artifacts & Reports
+- Master Synthesis: `reports/phase3_phase4_complete_report.md`
+- Phase 4 Report: `reports/adaptation_evaluation.md`
+- Phase 3 Report: `reports/phase3_report.md`
+- Research Paper Draft: `reports/research_paper_draft.md`
+- Methodology Audit: `reports/methodology_audit.md`

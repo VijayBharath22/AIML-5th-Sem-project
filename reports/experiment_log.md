@@ -52,3 +52,25 @@ Times are UTC.
 - 2026-11-10T18:30:09.152298+00:00 [pipeline] Phase 1 and Phase 2 finished {"models": 16, "verification_passed": true, "phiusiil_rows": 70000, "phreshphish_rows": 40000}
 
 Verification: `{"checked_result_files": 16, "mismatches": [], "passed": true}`
+
+## Phase 3: Distribution Shift & Drift Detection Experiments
+- [phase3_temporal] Historical Train (Aug-Oct 2024, N=14,525), Future Test (Jun-Nov 2025, N=18,314).
+  - XGBoost: F1 degraded from 0.9065 to 0.8313 (-7.52%), Recall dropped to 0.7941.
+  - Random Forest: Recall collapsed from 0.8976 to 0.7351.
+  - Logistic Regression & SGD: FPR increased to 15.4% and 17.8%.
+- [phase3_cross_dataset] Bidirectional Evaluation on 15 identical lexical URL features:
+  - PhreshPhish -> PhiUSIIL: XGBoost Accuracy 38.72%, ROC-AUC 0.4521, FPR 98.50%.
+  - PhiUSIIL -> PhreshPhish: XGBoost Accuracy 41.48%, ROC-AUC 0.4263, FPR 89.20%.
+  - Confirmed benchmark sampling artifact (PhiUSIIL legitimate URLs have 0.0% path/query components).
+- [phase3_drift] Unsupervised PSI and KS test monitoring:
+  - Stable period (Jun-Sep 2025): mean PSI < 0.03.
+  - Severe drift spike (Oct-Nov 2025): mean PSI = 0.2733, max feature PSI = 2.3128 (`path_length`).
+
+## Phase 4: Model Adaptation Under Limited Label Budgets
+- [phase4_adaptation] Evaluated 84 experimental runs across 4 strategies and budgets (0%, 1%, 5%, 10%, 100%):
+  - Strategy A (Static): XGBoost F1 = 0.8313, 0 updates, 0 labels.
+  - Strategy B (Periodic Retraining, 5% budget): XGBoost F1 = 0.8372 ± 0.0019, 5 updates, 916 labels, adaptation time 0.49s.
+  - Strategy B (Periodic Retraining, 100% budget): XGBoost F1 = 0.8448, 5 updates, 18,314 labels, adaptation time 0.67s.
+  - Strategy D (Drift-Triggered Retraining, 5% budget): XGBoost F1 = 0.8340 ± 0.0016, 1 update (80% reduction in updates), 916 labels, adaptation time 0.10s (5x faster).
+  - Strategy C (Online Incremental SGD, 5% budget): SGD F1 = 0.6882, 5 updates, adaptation time < 0.003s.
+- Completed all reports: `reports/phase3_phase4_complete_report.md`, `reports/adaptation_evaluation.md`, `reports/research_paper_draft.md`.

@@ -1,0 +1,73 @@
+{
+  "reference_window": "2024-08 to 2024-10",
+  "reference_samples": 14525,
+  "bonferroni_threshold": 0.0033333333333333335,
+  "monthly_summary": [
+    {
+      "month": "2025-06",
+      "n_samples": 671,
+      "phish_rate": 0.4187779433681073,
+      "mean_psi": 0.027117643609298966,
+      "max_psi": 0.15577040455209656,
+      "max_psi_feature": "path_length",
+      "mean_ks": 0.046165808646551294,
+      "max_ks_feature": "url_length",
+      "drift_status": "Stable"
+    },
+    {
+      "month": "2025-07",
+      "n_samples": 3544,
+      "phish_rate": 0.23617381489841988,
+      "mean_psi": 0.01499655005752663,
+      "max_psi": 0.07436942319848729,
+      "max_psi_feature": "path_length",
+      "mean_ks": 0.031215349628115837,
+      "max_ks_feature": "url_length",
+      "drift_status": "Stable"
+    },
+    {
+      "month": "2025-08",
+      "n_samples": 3342,
+      "phish_rate": 0.2573309395571514,
+      "mean_psi": 0.012739887263605995,
+      "max_psi": 0.05507683416443973,
+      "max_psi_feature": "url_length",
+      "mean_ks": 0.03063578654191014,
+      "max_ks_feature": "path_length",
+      "drift_status": "Stable"
+    },
+    {
+      "month": "2025-09",
+      "n_samples": 2617,
+      "phish_rate": 0.16125334352311807,
+      "mean_psi": 0.019933408491393568,
+      "max_psi": 0.10527975060328856,
+      "max_psi_feature": "hostname_length",
+      "mean_ks": 0.04022000990478648,
+      "max_ks_feature": "path_length",
+      "drift_status": "Stable"
+    },
+    {
+      "month": "2025-10",
+      "n_samples": 6802,
+      "phish_rate": 0.4800058806233461,
+      "mean_psi": 0.0645436537880267,
+      "max_psi": 0.6330311091315622,
+      "max_psi_feature": "path_length",
+      "mean_ks": 0.06089371844499858,
+      "max_ks_feature": "path_length",
+      "drift_status": "Stable"
+    },
+    {
+      "month": "2025-11",
+      "n_samples": 1338,
+      "phish_rate": 0.8961136023916293,
+      "mean_psi": 0.2733161992559616,
+      "max_psi": 2.3128223952073075,
+      "max_psi_feature": "path_length",
+      "mean_ks": 0.1267071892095394,
+      "max_ks_feature": "path_length",
+      "drift_status": "Severe"
+    }
+  ]
+}

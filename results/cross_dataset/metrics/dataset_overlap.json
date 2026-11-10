@@ -1,0 +1,8 @@
+{
+  "phiusiil_samples": 70000,
+  "phreshphish_samples": 40000,
+  "exact_url_overlap": 3,
+  "registrable_domain_overlap": 923,
+  "phiusiil_domain_overlap_pct": 1.7028891922807277,
+  "phreshphish_domain_overlap_pct": 4.757977215320378
+}

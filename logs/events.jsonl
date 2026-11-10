@@ -48,3 +48,19 @@
 {"time": "2026-11-10T18:30:09.152298+00:00", "stage": "pipeline", "message": "Phase 1 and Phase 2 finished", "models": 16, "verification_passed": true, "phiusiil_rows": 70000, "phreshphish_rows": 40000}
 {"time": "2026-11-10T18:37:03.737899+00:00", "stage": "temporal", "message": "Phase 3 Temporal Shift experiment started"}
 {"time": "2026-11-10T18:37:06.250976+00:00", "stage": "temporal", "message": "Phase 3 Temporal Shift experiment completed", "n_train": 14525, "n_test": 18314, "models": 4}
+{"time": "2026-11-10T19:10:44.786092+00:00", "stage": "phase3", "message": "Phase 3 pipeline started"}
+{"time": "2026-11-10T19:10:44.786366+00:00", "stage": "phase3_temporal", "message": "Started temporal distribution shift evaluation"}
+{"time": "2026-11-10T19:12:44.076895+00:00", "stage": "phase3", "message": "Phase 3 pipeline started"}
+{"time": "2026-11-10T19:12:44.077230+00:00", "stage": "phase3_temporal", "message": "Started temporal distribution shift evaluation"}
+{"time": "2026-11-10T19:12:48.224442+00:00", "stage": "phase3_temporal", "message": "Completed temporal distribution shift evaluation", "n_models": 4}
+{"time": "2026-11-10T19:12:48.225240+00:00", "stage": "phase3_cross_dataset", "message": "Started cross-dataset transfer evaluation"}
+{"time": "2026-11-10T19:12:56.465774+00:00", "stage": "phase3_cross_dataset", "message": "Completed cross-dataset transfer evaluation", "directions": 2, "models": 4}
+{"time": "2026-11-10T19:12:56.466269+00:00", "stage": "phase3_drift", "message": "Started statistical drift analysis"}
+{"time": "2026-11-10T19:12:57.194122+00:00", "stage": "phase3_drift", "message": "Completed statistical drift detection", "months": 6}
+{"time": "2026-11-10T19:12:57.211263+00:00", "stage": "phase3", "message": "Phase 3 pipeline completed successfully"}
+{"time": "2026-11-10T19:16:46.214236+00:00", "stage": "phase4", "message": "Phase 4 pipeline started"}
+{"time": "2026-11-10T19:16:46.214624+00:00", "stage": "phase4_adaptation", "message": "Started Phase 4 model adaptation experiments"}
+{"time": "2026-11-10T19:17:29.931039+00:00", "stage": "phase4", "message": "Phase 4 pipeline started"}
+{"time": "2026-11-10T19:17:29.931288+00:00", "stage": "phase4_adaptation", "message": "Started Phase 4 model adaptation experiments"}
+{"time": "2026-11-10T19:18:28.778429+00:00", "stage": "phase4_adaptation", "message": "Completed Phase 4 model adaptation experiments", "total_runs": 84}
+{"time": "2026-11-10T19:18:28.783759+00:00", "stage": "phase4", "message": "Phase 4 pipeline completed successfully"}

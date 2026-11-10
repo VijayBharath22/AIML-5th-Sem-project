@@ -1,0 +1,285 @@
+{
+  "experiment": "cross_dataset_transfer",
+  "overlap": {
+    "phiusiil_samples": 70000,
+    "phreshphish_samples": 40000,
+    "exact_url_overlap": 3,
+    "registrable_domain_overlap": 923,
+    "phiusiil_domain_overlap_pct": 1.7028891922807277,
+    "phreshphish_domain_overlap_pct": 4.757977215320378
+  },
+  "results": [
+    {
+      "direction": "PhreshPhish -> PhiUSIIL",
+      "train_dataset": "phreshphish",
+      "test_dataset": "phiusiil",
+      "model": "logistic_regression",
+      "accuracy": 0.568,
+      "precision": 0.4968168146002104,
+      "recall": 0.9005853821709316,
+      "f1": 0.6403681944675689,
+      "false_positive_rate": 0.6799152225408304,
+      "support_positive": 29895,
+      "support_negative": 40105,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          12837,
+          27268
+        ],
+        [
+          2972,
+          26923
+        ]
+      ],
+      "true_negative": 12837,
+      "false_positive": 27268,
+      "false_negative": 2972,
+      "true_positive": 26923,
+      "roc_auc": 0.8546561704693937,
+      "train_seconds": 0.49250521999965713,
+      "predict_seconds": 0.0313031490004505
+    },
+    {
+      "direction": "PhiUSIIL -> PhreshPhish",
+      "train_dataset": "phiusiil",
+      "test_dataset": "phreshphish",
+      "model": "logistic_regression",
+      "accuracy": 0.40565,
+      "precision": 0.41951791749294753,
+      "recall": 0.8339348176114597,
+      "f1": 0.5582190508046233,
+      "false_positive_rate": 0.945154395379508,
+      "support_positive": 18011,
+      "support_negative": 21989,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          1206,
+          20783
+        ],
+        [
+          2991,
+          15020
+        ]
+      ],
+      "true_negative": 1206,
+      "false_positive": 20783,
+      "false_negative": 2991,
+      "true_positive": 15020,
+      "roc_auc": 0.2366408533737243,
+      "train_seconds": 1.088306896001086,
+      "predict_seconds": 0.020835977000388084
+    },
+    {
+      "direction": "PhreshPhish -> PhiUSIIL",
+      "train_dataset": "phreshphish",
+      "test_dataset": "phiusiil",
+      "model": "random_forest",
+      "accuracy": 0.3885857142857143,
+      "precision": 0.404139304073931,
+      "recall": 0.909884596086302,
+      "f1": 0.5596855999423874,
+      "false_positive_rate": 1.0,
+      "support_positive": 29895,
+      "support_negative": 40105,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          40105
+        ],
+        [
+          2694,
+          27201
+        ]
+      ],
+      "true_negative": 0,
+      "false_positive": 40105,
+      "false_negative": 2694,
+      "true_positive": 27201,
+      "roc_auc": 0.43833443190884674,
+      "train_seconds": 0.8174828970004455,
+      "predict_seconds": 0.140749419999338
+    },
+    {
+      "direction": "PhiUSIIL -> PhreshPhish",
+      "train_dataset": "phiusiil",
+      "test_dataset": "phreshphish",
+      "model": "random_forest",
+      "accuracy": 0.414175,
+      "precision": 0.42968668949061106,
+      "recall": 0.9198267725278996,
+      "f1": 0.5857478742022734,
+      "false_positive_rate": 1.0,
+      "support_positive": 18011,
+      "support_negative": 21989,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          21989
+        ],
+        [
+          1444,
+          16567
+        ]
+      ],
+      "true_negative": 0,
+      "false_positive": 21989,
+      "false_negative": 1444,
+      "true_positive": 16567,
+      "roc_auc": 0.4298143236800283,
+      "train_seconds": 0.7467761219995737,
+      "predict_seconds": 0.047262187999876915
+    },
+    {
+      "direction": "PhreshPhish -> PhiUSIIL",
+      "train_dataset": "phreshphish",
+      "test_dataset": "phiusiil",
+      "model": "xgboost",
+      "accuracy": 0.39258571428571426,
+      "precision": 0.4066078773710532,
+      "recall": 0.9192507108212076,
+      "f1": 0.5638226936531221,
+      "false_positive_rate": 1.0,
+      "support_positive": 29895,
+      "support_negative": 40105,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          40105
+        ],
+        [
+          2414,
+          27481
+        ]
+      ],
+      "true_negative": 0,
+      "false_positive": 40105,
+      "false_negative": 2414,
+      "true_positive": 27481,
+      "roc_auc": 0.27524659584946765,
+      "train_seconds": 0.2303800740010047,
+      "predict_seconds": 0.04143657299937331
+    },
+    {
+      "direction": "PhiUSIIL -> PhreshPhish",
+      "train_dataset": "phiusiil",
+      "test_dataset": "phreshphish",
+      "model": "xgboost",
+      "accuracy": 0.414825,
+      "precision": 0.4300710175729615,
+      "recall": 0.9212703347954028,
+      "f1": 0.5863976110119626,
+      "false_positive_rate": 1.0,
+      "support_positive": 18011,
+      "support_negative": 21989,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          0,
+          21989
+        ],
+        [
+          1418,
+          16593
+        ]
+      ],
+      "true_negative": 0,
+      "false_positive": 21989,
+      "false_negative": 1418,
+      "true_positive": 16593,
+      "roc_auc": 0.3617525269213919,
+      "train_seconds": 0.3573877700000594,
+      "predict_seconds": 0.02299469100034912
+    },
+    {
+      "direction": "PhreshPhish -> PhiUSIIL",
+      "train_dataset": "phreshphish",
+      "test_dataset": "phiusiil",
+      "model": "sgd_classifier",
+      "accuracy": 0.6104571428571428,
+      "precision": 0.5260165983322439,
+      "recall": 0.8883425321960194,
+      "f1": 0.6607698240899704,
+      "false_positive_rate": 0.5966837052736567,
+      "support_positive": 29895,
+      "support_negative": 40105,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          16175,
+          23930
+        ],
+        [
+          3338,
+          26557
+        ]
+      ],
+      "true_negative": 16175,
+      "false_positive": 23930,
+      "false_negative": 3338,
+      "true_positive": 26557,
+      "roc_auc": 0.8524250102053775,
+      "train_seconds": 0.22010971300005622,
+      "predict_seconds": 0.010053313000753406
+    },
+    {
+      "direction": "PhiUSIIL -> PhreshPhish",
+      "train_dataset": "phiusiil",
+      "test_dataset": "phreshphish",
+      "model": "sgd_classifier",
+      "accuracy": 0.400275,
+      "precision": 0.41463902216129767,
+      "recall": 0.8061184831491867,
+      "f1": 0.5476078224300828,
+      "false_positive_rate": 0.9321478921278821,
+      "support_positive": 18011,
+      "support_negative": 21989,
+      "confusion_matrix_labels": [
+        0,
+        1
+      ],
+      "confusion_matrix": [
+        [
+          1492,
+          20497
+        ],
+        [
+          3492,
+          14519
+        ]
+      ],
+      "true_negative": 1492,
+      "false_positive": 20497,
+      "false_negative": 3492,
+      "true_positive": 14519,
+      "roc_auc": 0.2810885028221835,
+      "train_seconds": 0.28847976100041706,
+      "predict_seconds": 0.00772567199965124
+    }
+  ]
+}

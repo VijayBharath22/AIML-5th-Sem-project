@@ -1,0 +1,3 @@
+,pred_legitimate,pred_phishing
+true_legitimate,2548,159
+true_phishing,248,589

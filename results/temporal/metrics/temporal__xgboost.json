@@ -1,0 +1,46 @@
+{
+  "model": "xgboost",
+  "train_months": [
+    "2024-08",
+    "2024-09",
+    "2024-10"
+  ],
+  "test_months": [
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11"
+  ],
+  "n_train": 14525,
+  "n_test": 18314,
+  "accuracy": 0.8792180845254997,
+  "precision": 0.87216,
+  "recall": 0.7941433566433567,
+  "f1": 0.8313253012048193,
+  "false_positive_rate": 0.06978165938864629,
+  "support_positive": 6864,
+  "support_negative": 11450,
+  "confusion_matrix_labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      10651,
+      799
+    ],
+    [
+      1413,
+      5451
+    ]
+  ],
+  "true_negative": 10651,
+  "false_positive": 799,
+  "false_negative": 1413,
+  "true_positive": 5451,
+  "roc_auc": 0.9263716841746318,
+  "train_seconds": 0.3396250570003758,
+  "predict_seconds": 0.014396367001609178
+}
