@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Summary CSV Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/results/final/final_results_summary.csv"
+  },
+  {
+    "name": "Summary JSON Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/results/final/final_results_summary.json"
+  },
+  {
+    "name": "Experiment Registry Exists",
+    "passed": true,
+    "detail": "128 entries"
+  },
+  {
+    "name": "Reproducibility Manifest Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/results/final/reproducibility_manifest.json"
+  },
+  {
+    "name": "Figure 1 Generated",
+    "passed": true,
+    "detail": "fig1_research_pipeline.png"
+  },
+  {
+    "name": "Figure 2 Generated",
+    "passed": true,
+    "detail": "fig2_baseline_vs_distribution_shift.png"
+  },
+  {
+    "name": "Figure 3 Generated",
+    "passed": true,
+    "detail": "fig3_temporal_monthly_performance.png"
+  },
+  {
+    "name": "Figure 4 Generated",
+    "passed": true,
+    "detail": "fig4_cross_dataset_generalization.png"
+  },
+  {
+    "name": "Figure 5 Generated",
+    "passed": true,
+    "detail": "fig5_feature_drift_heatmap.png"
+  },
+  {
+    "name": "Figure 6 Generated",
+    "passed": true,
+    "detail": "fig6_drift_vs_performance_association.png"
+  },
+  {
+    "name": "Figure 7 Generated",
+    "passed": true,
+    "detail": "fig7_adaptation_strategy_comparison.png"
+  },
+  {
+    "name": "Figure 8 Generated",
+    "passed": true,
+    "detail": "fig8_budget_recovery_curves.png"
+  },
+  {
+    "name": "Figure 9 Generated",
+    "passed": true,
+    "detail": "fig9_adaptation_efficiency.png"
+  },
+  {
+    "name": "Final Research Paper Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/reports/final_research_paper.md"
+  },
+  {
+    "name": "Phase 5 Master Report Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/reports/phase5_complete_report.md"
+  },
+  {
+    "name": "Reproducibility Guide Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/reports/reproducibility_guide.md"
+  },
+  {
+    "name": "Final Methodology Audit Exists",
+    "passed": true,
+    "detail": "/home/Vijay/Desktop/AIML Project 5th sem/reports/final_methodology_audit.md"
+  },
+  {
+    "name": "Leakage Excluded from Config",
+    "passed": true,
+    "detail": "Confirmed in exclude_from_model list"
+  },
+  {
+    "name": "Temporal Parity Verification",
+    "passed": true,
+    "detail": "Calculated F1=0.831325, Reported F1=0.831325"
+  },
+  {
+    "name": "Adaptation Compute Reduction Verified",
+    "passed": true,
+    "detail": "Measured: 80.26% (Expected ~80.26%)"
+  }
+]

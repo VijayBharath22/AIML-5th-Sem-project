@@ -1,0 +1,35 @@
+{
+  "project_title": "Drift-Aware Phishing URL Detection Under Temporal and Cross-Dataset Distribution Shifts Using Machine Learning",
+  "generated_at": "2026-11-10T19:55:25.337113+00:00",
+  "environment": {
+    "python_version": "3.14.10",
+    "os_system": "Linux",
+    "os_release": "7.3.3-200.fc44.x86_64",
+    "machine": "x86_64",
+    "git_commit": "ba67f4c62e1f56f49f9b6c5788705daaa64367eb"
+  },
+  "random_seeds": [
+    42,
+    43,
+    44
+  ],
+  "datasets": {
+    "phiusiil": {
+      "source": "UCI Machine Learning Repository",
+      "sample_size": 70000,
+      "clean_features": 50,
+      "excised_leakage_features": [
+        "URLSimilarityIndex"
+      ]
+    },
+    "phreshphish": {
+      "source": "Hugging Face (phreshphish/phreshphish)",
+      "sample_size": 40000,
+      "lexical_features": 15,
+      "historical_window": "2024-08 to 2024-10 (N=14,525)",
+      "temporal_stream_window": "2025-06 to 2025-11 (N=18,314)"
+    }
+  },
+  "total_experiments_indexed": 128,
+  "authoritative_verdict": "Scientifically Defensible With Documented Limitations"
+}

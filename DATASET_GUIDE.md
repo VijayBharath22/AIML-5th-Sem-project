@@ -37,7 +37,9 @@
 
 ## Cross-Dataset Compatibility
 
-The processed feature tables are intentionally separated:
-- PhiUSIIL: 50 tabular/webpage features.
-- PhreshPhish: 15 lexical URL features.
-Cross-dataset transfer (Phase 6) must extract the 15 lexical URL features from PhiUSIIL's raw URLs rather than concatenating or imputing missing webpage features.
+The processed feature tables:
+- `data/processed/phiusiil.parquet`: 50 tabular/webpage features (baselines).
+- `data/processed/phiusiil_url_features.parquet`: 15 lexical URL features extracted directly from raw PhiUSIIL URLs for cross-dataset evaluation.
+- `data/processed/phreshphish.parquet`: 15 lexical URL features + timestamps.
+
+Cross-dataset transfer strictly uses the identical 15 lexical URL features on both datasets. The empirical evaluation confirmed that naive transfer fails catastrophically ($\text{FPR} = 1.0000$) due to PhiUSIIL's root-homepage curation artifact.

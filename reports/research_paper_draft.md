@@ -11,6 +11,8 @@ Phishing attacks are dynamic threats that continuously evolve to evade detection
 
 ---
 
+> **Note on Final Paper:** The finalized, comprehensive academic manuscript with expanded related work, threats to validity, and full formal bibliography is available at [`reports/final_research_paper.md`](final_research_paper.md).
+
 ### 1. Introduction
 Machine learning systems for phishing URL detection are typically evaluated using static train-test partitions. However, adversaries actively alter URL structural parameters, hosting patterns, and path depths. Consequently, production detection systems face concept drift and covariate shift. This research answers three fundamental questions:
 1. How rapidly and severely does phishing detector performance decay over time?

@@ -14,3 +14,5 @@
 - Never evaluate temporal shift on months lacking both classes (e.g. Nov 2024–Apr 2025 in PhreshPhish).
 - Fit preprocessing on the training split only.
 - Leave the PhiUSIIL zip unchanged. Do not download PhreshPhish HTML for routine runs.
+- The final methodology audit (`reports/final_methodology_audit.md`) and authoritative index (`results/final/final_results_summary.csv`) are the primary authorities for metrics.
+- The final scientific verdict is: **Scientifically defensible with documented limitations.** Do not claim unconditional full validation.
