@@ -1,0 +1,12 @@
+{
+  "dataset": "phiusiil",
+  "source_url": "https://archive.ics.uci.edu/static/public/967/phiusiil+phishing+url+dataset.zip",
+  "uci_page": "https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset",
+  "download_date": "2026-11-10",
+  "zip_path": "data/raw/phiusiil/phiusiil_phishing_url_dataset.zip",
+  "csv_path": "data/raw/phiusiil/extracted/PhiUSIIL_Phishing_URL_Dataset.csv",
+  "zip_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a",
+  "zip_bytes": 15376007,
+  "csv_bytes": 56854345,
+  "note": "Zip archive stored unchanged. CSV is the extracted original file."
+}

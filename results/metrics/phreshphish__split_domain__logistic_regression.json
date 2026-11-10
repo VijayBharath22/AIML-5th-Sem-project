@@ -1,0 +1,72 @@
+{
+  "dataset": "phreshphish",
+  "split": "split_domain",
+  "model": "logistic_regression",
+  "positive_class": "phishing (1)",
+  "metrics": {
+    "accuracy": 0.8396054073803434,
+    "precision": 0.811901681759379,
+    "recall": 0.8417381974248928,
+    "f1": 0.8265507704464639,
+    "false_positive_rate": 0.16216819094356458,
+    "support_positive": 3728,
+    "support_negative": 4483,
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "confusion_matrix": [
+      [
+        3756,
+        727
+      ],
+      [
+        590,
+        3138
+      ]
+    ],
+    "true_negative": 3756,
+    "false_positive": 727,
+    "false_negative": 590,
+    "true_positive": 3138,
+    "roc_auc": 0.911696481653629,
+    "train_seconds": 0.5015866300000198,
+    "predict_seconds": 0.006144093000330031,
+    "n_train": 31789,
+    "n_test": 8211
+  },
+  "params": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 1000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "n_dots",
+    "n_hyphens",
+    "n_digits",
+    "n_special_chars",
+    "n_subdirectories",
+    "n_query_params",
+    "is_https",
+    "is_ip_hostname",
+    "n_suspicious_keywords",
+    "n_subdomains",
+    "has_at_symbol",
+    "is_shortened"
+  ],
+  "preprocessing_fit_on": "train split only"
+}

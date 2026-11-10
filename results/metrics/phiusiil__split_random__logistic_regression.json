@@ -1,0 +1,189 @@
+{
+  "dataset": "phiusiil",
+  "split": "split_random",
+  "model": "logistic_regression",
+  "positive_class": "phishing (1)",
+  "metrics": {
+    "accuracy": 0.9995714285714286,
+    "precision": 0.9996653839718923,
+    "recall": 0.9993309918046496,
+    "f1": 0.9994981599197056,
+    "false_positive_rate": 0.00024934546814611643,
+    "support_positive": 5979,
+    "support_negative": 8021,
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "confusion_matrix": [
+      [
+        8019,
+        2
+      ],
+      [
+        4,
+        5975
+      ]
+    ],
+    "true_negative": 8019,
+    "false_positive": 2,
+    "false_negative": 4,
+    "true_positive": 5975,
+    "roc_auc": 0.9999954751658648,
+    "train_seconds": 0.619550667999647,
+    "predict_seconds": 0.021834093000506982,
+    "n_train": 56000,
+    "n_test": 14000
+  },
+  "params": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": 0.0,
+    "max_iter": 1000,
+    "n_jobs": null,
+    "penalty": "deprecated",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef",
+    "TLD"
+  ],
+  "preprocessing_fit_on": "train split only",
+  "top_features": [
+    {
+      "feature": "num__IsHTTPS",
+      "value": 5.269441914239764
+    },
+    {
+      "feature": "num__LetterRatioInURL",
+      "value": 3.8544542080712136
+    },
+    {
+      "feature": "num__SpacialCharRatioInURL",
+      "value": 3.305532954234639
+    },
+    {
+      "feature": "num__DegitRatioInURL",
+      "value": 2.695635149863732
+    },
+    {
+      "feature": "num__NoOfJS",
+      "value": 1.9798530598185569
+    },
+    {
+      "feature": "num__NoOfSelfRef",
+      "value": 1.9164578506616656
+    },
+    {
+      "feature": "num__HasSocialNet",
+      "value": 1.7821370521066309
+    },
+    {
+      "feature": "num__NoOfImage",
+      "value": 1.7251459001388683
+    },
+    {
+      "feature": "num__LargestLineLength",
+      "value": 1.7144284639771579
+    },
+    {
+      "feature": "num__LineOfCode",
+      "value": 1.5848417159606767
+    },
+    {
+      "feature": "num__NoOfCSS",
+      "value": 1.5591327704561562
+    },
+    {
+      "feature": "num__NoOfOtherSpecialCharsInURL",
+      "value": 1.5058605777887297
+    },
+    {
+      "feature": "num__NoOfExternalRef",
+      "value": 1.4885686289357352
+    },
+    {
+      "feature": "num__NoOfLettersInURL",
+      "value": 1.385434707267662
+    },
+    {
+      "feature": "cat__TLD_org",
+      "value": 1.3817051790335697
+    },
+    {
+      "feature": "num__HasTitle",
+      "value": 1.3474462620677832
+    },
+    {
+      "feature": "num__HasDescription",
+      "value": 1.3201404605517566
+    },
+    {
+      "feature": "num__NoOfSubDomain",
+      "value": 1.2907481040357824
+    },
+    {
+      "feature": "num__DomainLength",
+      "value": 1.2812424356847478
+    },
+    {
+      "feature": "num__HasCopyrightInfo",
+      "value": 1.2655495077489451
+    }
+  ]
+}

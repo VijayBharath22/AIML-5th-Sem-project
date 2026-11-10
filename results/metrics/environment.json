@@ -1,0 +1,14 @@
+{
+  "python": "3.14.10",
+  "platform": "Linux-7.3.3-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "processor": "",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "matplotlib": "3.11.2",
+    "pyarrow": "26.0.1",
+    "tldextract": "5.4.0"
+  }
+}

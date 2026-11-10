@@ -1,0 +1,79 @@
+{
+  "dataset": "phreshphish",
+  "split": "split_domain",
+  "model": "sgd_classifier",
+  "positive_class": "phishing (1)",
+  "metrics": {
+    "accuracy": 0.8329070758738278,
+    "precision": 0.8050233039875712,
+    "recall": 0.8339592274678111,
+    "f1": 0.819235836627141,
+    "false_positive_rate": 0.16796787865268792,
+    "support_positive": 3728,
+    "support_negative": 4483,
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "confusion_matrix": [
+      [
+        3730,
+        753
+      ],
+      [
+        619,
+        3109
+      ]
+    ],
+    "true_negative": 3730,
+    "false_positive": 753,
+    "false_negative": 619,
+    "true_positive": 3109,
+    "roc_auc": 0.9088153063217362,
+    "train_seconds": 0.16253652799969132,
+    "predict_seconds": 0.0027812049993372057,
+    "n_train": 31789,
+    "n_test": 8211
+  },
+  "params": {
+    "alpha": 0.0001,
+    "average": false,
+    "class_weight": "balanced",
+    "early_stopping": false,
+    "epsilon": 0.1,
+    "eta0": 0.01,
+    "fit_intercept": true,
+    "l1_ratio": 0.15,
+    "learning_rate": "optimal",
+    "loss": "log_loss",
+    "max_iter": 40,
+    "n_iter_no_change": 5,
+    "n_jobs": null,
+    "penalty": "l2",
+    "power_t": 0.5,
+    "random_state": 42,
+    "shuffle": true,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "n_dots",
+    "n_hyphens",
+    "n_digits",
+    "n_special_chars",
+    "n_subdirectories",
+    "n_query_params",
+    "is_https",
+    "is_ip_hostname",
+    "n_suspicious_keywords",
+    "n_subdomains",
+    "has_at_symbol",
+    "is_shortened"
+  ],
+  "preprocessing_fit_on": "train split only"
+}

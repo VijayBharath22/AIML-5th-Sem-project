@@ -1,0 +1,215 @@
+{
+  "dataset": "phiusiil",
+  "split": "split_random",
+  "model": "xgboost",
+  "positive_class": "phishing (1)",
+  "metrics": {
+    "accuracy": 0.9999285714285714,
+    "precision": 0.9998327759197324,
+    "recall": 1.0,
+    "f1": 0.9999163809683084,
+    "false_positive_rate": 0.00012467273407305821,
+    "support_positive": 5979,
+    "support_negative": 8021,
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "confusion_matrix": [
+      [
+        8020,
+        1
+      ],
+      [
+        0,
+        5979
+      ]
+    ],
+    "true_negative": 8020,
+    "false_positive": 1,
+    "false_negative": 0,
+    "true_positive": 5979,
+    "roc_auc": 1.0,
+    "train_seconds": 1.1839445469995553,
+    "predict_seconds": 0.021631392000927008,
+    "n_train": 56000,
+    "n_test": 14000
+  },
+  "params": {
+    "objective": "binary:logistic",
+    "base_score": null,
+    "booster": null,
+    "callbacks": null,
+    "colsample_bylevel": null,
+    "colsample_bynode": null,
+    "colsample_bytree": 0.9,
+    "device": null,
+    "early_stopping_rounds": null,
+    "enable_categorical": true,
+    "eval_metric": "logloss",
+    "feature_types": null,
+    "feature_weights": null,
+    "gamma": null,
+    "grow_policy": null,
+    "importance_type": null,
+    "interaction_constraints": null,
+    "learning_rate": 0.1,
+    "max_bin": null,
+    "max_cat_threshold": null,
+    "max_cat_to_onehot": null,
+    "max_delta_step": null,
+    "max_depth": 6,
+    "max_leaves": null,
+    "min_child_weight": 2,
+    "missing": NaN,
+    "monotone_constraints": null,
+    "multi_strategy": null,
+    "n_estimators": 120,
+    "n_jobs": 2,
+    "num_parallel_tree": null,
+    "random_state": 42,
+    "reg_alpha": null,
+    "reg_lambda": 1.0,
+    "sampling_method": null,
+    "scale_pos_weight": 1.3415286837263756,
+    "subsample": 0.9,
+    "tree_method": "hist",
+    "validate_parameters": null,
+    "verbosity": null
+  },
+  "features": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef",
+    "TLD"
+  ],
+  "preprocessing_fit_on": "train split only",
+  "top_features": [
+    {
+      "feature": "num__NoOfExternalRef",
+      "value": 0.8186196684837341
+    },
+    {
+      "feature": "num__NoOfSelfRef",
+      "value": 0.04365449771285057
+    },
+    {
+      "feature": "num__LineOfCode",
+      "value": 0.04261916130781174
+    },
+    {
+      "feature": "num__URLLength",
+      "value": 0.014495176263153553
+    },
+    {
+      "feature": "num__NoOfOtherSpecialCharsInURL",
+      "value": 0.013473674654960632
+    },
+    {
+      "feature": "num__HasSocialNet",
+      "value": 0.011058296076953411
+    },
+    {
+      "feature": "cat__TLD_page",
+      "value": 0.009107948280870914
+    },
+    {
+      "feature": "num__IsHTTPS",
+      "value": 0.008586536161601543
+    },
+    {
+      "feature": "num__NoOfSubDomain",
+      "value": 0.007469820789992809
+    },
+    {
+      "feature": "num__HasDescription",
+      "value": 0.005849949549883604
+    },
+    {
+      "feature": "num__NoOfImage",
+      "value": 0.00525587797164917
+    },
+    {
+      "feature": "num__HasCopyrightInfo",
+      "value": 0.003915371838957071
+    },
+    {
+      "feature": "num__DomainTitleMatchScore",
+      "value": 0.0028856173157691956
+    },
+    {
+      "feature": "num__NoOfLettersInURL",
+      "value": 0.0025474103167653084
+    },
+    {
+      "feature": "num__NoOfDegitsInURL",
+      "value": 0.0020158218685537577
+    },
+    {
+      "feature": "num__DegitRatioInURL",
+      "value": 0.0014640954323112965
+    },
+    {
+      "feature": "num__LetterRatioInURL",
+      "value": 0.0009890098590403795
+    },
+    {
+      "feature": "num__DomainLength",
+      "value": 0.0009381636627949774
+    },
+    {
+      "feature": "num__NoOfCSS",
+      "value": 0.00088671431876719
+    },
+    {
+      "feature": "num__SpacialCharRatioInURL",
+      "value": 0.0007725573959760368
+    }
+  ]
+}

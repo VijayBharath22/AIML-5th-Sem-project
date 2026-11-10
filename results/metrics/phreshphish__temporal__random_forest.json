@@ -1,0 +1,37 @@
+{
+  "dataset": "phreshphish",
+  "experiment": "temporal_shift",
+  "train_period": "2024-08 to 2024-10",
+  "test_period": "2025-06 to 2025-11",
+  "model": "random_forest",
+  "accuracy": 0.879381893633286,
+  "precision": 0.9280853411807982,
+  "recall": 0.7351398601398601,
+  "f1": 0.8204211039752866,
+  "false_positive_rate": 0.03414847161572052,
+  "support_positive": 6864,
+  "support_negative": 11450,
+  "confusion_matrix_labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      11059,
+      391
+    ],
+    [
+      1818,
+      5046
+    ]
+  ],
+  "true_negative": 11059,
+  "false_positive": 391,
+  "false_negative": 1818,
+  "true_positive": 5046,
+  "roc_auc": 0.9340585969707149,
+  "train_seconds": 0.3660479990012391,
+  "predict_seconds": 0.06584964799912996,
+  "n_train": 14525,
+  "n_test": 18314
+}

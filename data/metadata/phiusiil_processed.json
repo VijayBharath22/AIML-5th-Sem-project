@@ -1,0 +1,573 @@
+{
+  "dataset": "phiusiil",
+  "processing_path": "published_tabular_features",
+  "n_original_rows": 235795,
+  "n_after_url_dedup": 235370,
+  "duplicate_urls_removed": 425,
+  "duplicate_urls_had_label_conflicts": 0,
+  "sample_size_requested": 70000,
+  "sample_size_actual": 70000,
+  "sampling": "stratified random sample on the phishing label, sklearn train_test_split, seed from config",
+  "label_mapping": {
+    "raw_0": "phishing",
+    "raw_1": "legitimate",
+    "model_positive_1": "phishing",
+    "evidence": "UCI abstract states 134850 legitimate and 100945 phishing URLs, matching raw labels 1 and 0."
+  },
+  "class_distribution_sample": {
+    "counts": {
+      "0": 40105,
+      "1": 29895
+    },
+    "proportions": {
+      "0": 0.5729285714285715,
+      "1": 0.42707142857142855
+    }
+  },
+  "missing": {
+    "n_rows": 70000,
+    "n_columns": 57,
+    "columns_with_missing": 0,
+    "missing_counts": {}
+  },
+  "model_features": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "TLD",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef"
+  ],
+  "categorical_features": [
+    "TLD"
+  ],
+  "numeric_features": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef"
+  ],
+  "excluded_from_model": [
+    "FILENAME",
+    "URL",
+    "Domain",
+    "Title",
+    "URLSimilarityIndex",
+    "label",
+    "raw_label",
+    "registrable_domain",
+    "split_random",
+    "split_domain"
+  ],
+  "exclusion_reasons": {
+    "FILENAME": "UCI marks this column as ignorable identifier.",
+    "URL": "High-cardinality identifier. Retained only for traceability and domain checks.",
+    "Domain": "Identifier. Registrable domain is derived for split analysis and is not a model feature.",
+    "Title": "Free-text page title. Not one-hot encoded and not used as a model feature."
+  },
+  "numeric_profile": {
+    "URLLength": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 362,
+      "min": 13.0,
+      "max": 4246.0,
+      "mean": 34.57958571428571
+    },
+    "DomainLength": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 94,
+      "min": 4.0,
+      "max": 104.0,
+      "mean": 21.504885714285713
+    },
+    "IsDomainIP": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0027142857142857142
+    },
+    "CharContinuationRate": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 673,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.8451278401815429
+    },
+    "TLDLegitimateProb": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 401,
+      "min": 0.0,
+      "max": 0.5229071,
+      "mean": 0.2605078581528571
+    },
+    "URLCharProb": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 69201,
+      "min": 0.001082764,
+      "max": 0.085418548,
+      "mean": 0.05577216658637143
+    },
+    "TLDLength": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 10,
+      "min": 2.0,
+      "max": 12.0,
+      "mean": 2.7645
+    },
+    "NoOfSubDomain": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 10,
+      "min": 0.0,
+      "max": 10.0,
+      "mean": 1.1689857142857143
+    },
+    "HasObfuscation": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0022285714285714287
+    },
+    "NoOfObfuscatedChar": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 13,
+      "min": 0.0,
+      "max": 447.0,
+      "mean": 0.03895714285714286
+    },
+    "ObfuscationRatio": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 86,
+      "min": 0.0,
+      "max": 0.348,
+      "mean": 0.00016134285714285715
+    },
+    "NoOfLettersInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 304,
+      "min": 0.0,
+      "max": 2997.0,
+      "mean": 19.38677142857143
+    },
+    "LetterRatioInURL": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 632,
+      "min": 0.0,
+      "max": 0.926,
+      "mean": 0.5157703714285714
+    },
+    "NoOfDegitsInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 141,
+      "min": 0.0,
+      "max": 2011.0,
+      "mean": 1.9107
+    },
+    "DegitRatioInURL": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 500,
+      "min": 0.0,
+      "max": 0.678,
+      "mean": 0.0285643
+    },
+    "NoOfEqualsInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 19,
+      "min": 0.0,
+      "max": 163.0,
+      "mean": 0.0649
+    },
+    "NoOfQMarkInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 4,
+      "min": 0.0,
+      "max": 3.0,
+      "mean": 0.02847142857142857
+    },
+    "NoOfAmpersandInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 22,
+      "min": 0.0,
+      "max": 149.0,
+      "mean": 0.0285
+    },
+    "NoOfOtherSpecialCharsInURL": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 60,
+      "min": 0.0,
+      "max": 445.0,
+      "mean": 2.344942857142857
+    },
+    "SpacialCharRatioInURL": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 216,
+      "min": 0.0,
+      "max": 0.391,
+      "mean": 0.06332094285714286
+    },
+    "IsHTTPS": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.7828142857142857
+    },
+    "LineOfCode": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 6934,
+      "min": 2.0,
+      "max": 418650.0,
+      "mean": 1152.5622857142857
+    },
+    "LargestLineLength": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 14319,
+      "min": 23.0,
+      "max": 13698324.0,
+      "mean": 12693.859914285715
+    },
+    "HasTitle": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.8617285714285714
+    },
+    "DomainTitleMatchScore": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 124,
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 50.2062401042046
+    },
+    "URLTitleMatchScore": {
+      "dtype": "float64",
+      "missing": 0,
+      "nunique": 338,
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 52.21870302075086
+    },
+    "HasFavicon": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.3627
+    },
+    "Robots": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.2654714285714286
+    },
+    "IsResponsive": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.624
+    },
+    "NoOfURLRedirect": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.13344285714285714
+    },
+    "NoOfSelfRedirect": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0396
+    },
+    "HasDescription": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.4393142857142857
+    },
+    "NoOfPopup": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 70,
+      "min": 0.0,
+      "max": 602.0,
+      "mean": 0.22905714285714285
+    },
+    "NoOfiFrame": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 86,
+      "min": 0.0,
+      "max": 398.0,
+      "mean": 1.6207857142857143
+    },
+    "HasExternalFormSubmit": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.04387142857142857
+    },
+    "HasSocialNet": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.45617142857142856
+    },
+    "HasSubmitButton": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.4159
+    },
+    "HasHiddenFields": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.3782142857142857
+    },
+    "HasPasswordField": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.1034
+    },
+    "Bank": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.12944285714285714
+    },
+    "Pay": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.23742857142857143
+    },
+    "Crypto": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.02315714285714286
+    },
+    "HasCopyrightInfo": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.4861285714285714
+    },
+    "NoOfImage": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 658,
+      "min": 0.0,
+      "max": 4778.0,
+      "mean": 26.47477142857143
+    },
+    "NoOfCSS": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 153,
+      "min": 0.0,
+      "max": 439.0,
+      "mean": 6.164071428571429
+    },
+    "NoOfJS": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 171,
+      "min": 0.0,
+      "max": 756.0,
+      "mean": 10.480957142857143
+    },
+    "NoOfSelfRef": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 952,
+      "min": 0.0,
+      "max": 26596.0,
+      "mean": 65.72341428571428
+    },
+    "NoOfEmptyRef": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 192,
+      "min": 0.0,
+      "max": 1336.0,
+      "mean": 2.4175714285714287
+    },
+    "NoOfExternalRef": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 819,
+      "min": 0.0,
+      "max": 24525.0,
+      "mean": 49.510714285714286
+    }
+  },
+  "tld_cardinality_in_sample": 525,
+  "split": {
+    "status": "ok",
+    "seed": 43,
+    "test_positive_rate": 0.4260719919690234,
+    "test_fraction": 0.19922857142857142,
+    "n_train": 56054,
+    "n_test": 13946,
+    "domain_overlap_count": 0,
+    "random_split_domain_overlap_count": 741,
+    "random_split_test_domains": 11288,
+    "random_split_test_domains_also_in_train": 741,
+    "n_domains": 54202
+  },
+  "feature_overlap": {
+    "random_split_test_rows": 14000,
+    "random_split_test_rows_with_exact_train_feature_match": 40,
+    "random_split_exact_feature_match_rate": 0.002857142857142857
+  },
+  "processed_path": "data/processed/phiusiil.parquet",
+  "date_coverage": null,
+  "limitation": "PhiUSIIL has no collection timestamp, so it cannot support a temporal split by itself."
+}

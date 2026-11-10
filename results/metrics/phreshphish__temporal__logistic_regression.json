@@ -1,0 +1,37 @@
+{
+  "dataset": "phreshphish",
+  "experiment": "temporal_shift",
+  "train_period": "2024-08 to 2024-10",
+  "test_period": "2025-06 to 2025-11",
+  "model": "logistic_regression",
+  "accuracy": 0.8276728186087147,
+  "precision": 0.7560773480662983,
+  "recall": 0.7974941724941725,
+  "f1": 0.7762336925694838,
+  "false_positive_rate": 0.154235807860262,
+  "support_positive": 6864,
+  "support_negative": 11450,
+  "confusion_matrix_labels": [
+    0,
+    1
+  ],
+  "confusion_matrix": [
+    [
+      9684,
+      1766
+    ],
+    [
+      1390,
+      5474
+    ]
+  ],
+  "true_negative": 9684,
+  "false_positive": 1766,
+  "false_negative": 1390,
+  "true_positive": 5474,
+  "roc_auc": 0.8805521625390621,
+  "train_seconds": 0.06535621800139779,
+  "predict_seconds": 0.007703432000198518,
+  "n_train": 14525,
+  "n_test": 18314
+}

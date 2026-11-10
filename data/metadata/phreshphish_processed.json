@@ -1,0 +1,367 @@
+{
+  "dataset": "phreshphish",
+  "processing_path": "url_derived_features_only",
+  "n_rows_retrieved": 666315,
+  "n_after_label_and_date_filter": 666315,
+  "invalid_dates_removed": 0,
+  "invalid_urls_removed": 5744,
+  "feature_extraction_failures_in_sample": 0,
+  "n_before_url_dedup": 660571,
+  "duplicate_urls_removed": 0,
+  "n_after_cleaning": 660571,
+  "sample_size_requested": 40000,
+  "sample_size_actual": 40000,
+  "sampling": "Uniform random sample without label stratification so the joint time and class distribution of the cleaned corpus is preserved in expectation. Seed from config.",
+  "label_mapping": {
+    "raw_phish": "phishing",
+    "raw_benign": "legitimate",
+    "model_positive_1": "phishing",
+    "evidence": "PhreshPhish dataset card defines label values 'phish' and 'benign'."
+  },
+  "observed_raw_labels": [
+    "benign",
+    "phish"
+  ],
+  "class_distribution_cleaned": {
+    "counts": {
+      "0": 362248,
+      "1": 298323
+    },
+    "proportions": {
+      "0": 0.5483861689356633,
+      "1": 0.4516138310643368
+    }
+  },
+  "class_distribution_sample": {
+    "counts": {
+      "0": 21989,
+      "1": 18011
+    },
+    "proportions": {
+      "0": 0.549725,
+      "1": 0.450275
+    }
+  },
+  "missing": {
+    "n_rows": 40000,
+    "n_columns": 17,
+    "columns_with_missing": 0,
+    "missing_counts": {}
+  },
+  "model_features": [
+    "url_length",
+    "hostname_length",
+    "path_length",
+    "n_dots",
+    "n_hyphens",
+    "n_digits",
+    "n_special_chars",
+    "n_subdirectories",
+    "n_query_params",
+    "is_https",
+    "is_ip_hostname",
+    "n_suspicious_keywords",
+    "n_subdomains",
+    "has_at_symbol",
+    "is_shortened"
+  ],
+  "feature_definitions": {
+    "url_length": "Character length of the raw URL.",
+    "hostname_length": "Character length of the parsed hostname.",
+    "path_length": "Character length of the URL path.",
+    "n_dots": "Count of '.' characters in the raw URL.",
+    "n_hyphens": "Count of '-' characters in the raw URL.",
+    "n_digits": "Count of digit characters in the raw URL.",
+    "n_special_chars": "Count of characters that are not alphanumeric and not in .:/-_?=&%+.",
+    "n_subdirectories": "Count of non-empty path segments.",
+    "n_query_params": "Count of query-string keys.",
+    "is_https": "1 if the scheme is https, else 0.",
+    "is_ip_hostname": "1 if the hostname is an IP address, else 0.",
+    "n_suspicious_keywords": "Count of distinct configured keywords present as substrings.",
+    "n_subdomains": "Number of subdomain labels from the public-suffix parse.",
+    "has_at_symbol": "1 if '@' appears in the URL, else 0.",
+    "is_shortened": "1 if the hostname is a configured shortening service, else 0."
+  },
+  "numeric_profile": {
+    "url_length": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 400,
+      "min": 14.0,
+      "max": 2164.0,
+      "mean": 58.1458
+    },
+    "hostname_length": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 80,
+      "min": 4.0,
+      "max": 101.0,
+      "mean": 20.7609
+    },
+    "path_length": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 237,
+      "min": 0.0,
+      "max": 1661.0,
+      "mean": 26.19625
+    },
+    "n_dots": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 18,
+      "min": 1.0,
+      "max": 29.0,
+      "mean": 2.138225
+    },
+    "n_hyphens": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 37,
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 1.8971
+    },
+    "n_digits": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 164,
+      "min": 0.0,
+      "max": 658.0,
+      "mean": 4.267075
+    },
+    "n_special_chars": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 13,
+      "min": 0.0,
+      "max": 112.0,
+      "mean": 0.04265
+    },
+    "n_subdirectories": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 21,
+      "min": 0.0,
+      "max": 24.0,
+      "mean": 1.709275
+    },
+    "n_query_params": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 19,
+      "min": 0.0,
+      "max": 48.0,
+      "mean": 0.09695
+    },
+    "is_https": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.9347
+    },
+    "is_ip_hostname": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.001525
+    },
+    "n_suspicious_keywords": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 5,
+      "min": 0.0,
+      "max": 4.0,
+      "mean": 0.08445
+    },
+    "n_subdomains": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 9,
+      "min": 0.0,
+      "max": 8.0,
+      "mean": 0.851475
+    },
+    "has_at_symbol": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.006525
+    },
+    "is_shortened": {
+      "dtype": "int64",
+      "missing": 0,
+      "nunique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.00485
+    }
+  },
+  "date_min": "2024-07-02 00:00:00+00:00",
+  "date_max": "2025-12-16 00:00:00+00:00",
+  "monthly_counts_before_sample": {
+    "2024-07": {
+      "0": 147,
+      "1": 53407
+    },
+    "2024-08": {
+      "0": 83555,
+      "1": 15344
+    },
+    "2024-09": {
+      "0": 74216,
+      "1": 28668
+    },
+    "2024-10": {
+      "0": 14631,
+      "1": 24212
+    },
+    "2024-11": {
+      "1": 15585
+    },
+    "2024-12": {
+      "1": 7868
+    },
+    "2025-01": {
+      "1": 23004
+    },
+    "2025-02": {
+      "1": 9324
+    },
+    "2025-03": {
+      "1": 5678
+    },
+    "2025-04": {
+      "1": 2800
+    },
+    "2025-06": {
+      "0": 6652,
+      "1": 4725
+    },
+    "2025-07": {
+      "0": 43894,
+      "1": 13730
+    },
+    "2025-08": {
+      "0": 40668,
+      "1": 13956
+    },
+    "2025-09": {
+      "0": 35713,
+      "1": 7501
+    },
+    "2025-10": {
+      "0": 59672,
+      "1": 53326
+    },
+    "2025-11": {
+      "0": 2083,
+      "1": 19195
+    },
+    "2025-12": {
+      "0": 1017
+    }
+  },
+  "monthly_counts_after_sample": {
+    "2024-07": {
+      "0": 7,
+      "1": 3172
+    },
+    "2024-08": {
+      "0": 5080,
+      "1": 862
+    },
+    "2024-09": {
+      "0": 4498,
+      "1": 1777
+    },
+    "2024-10": {
+      "0": 881,
+      "1": 1427
+    },
+    "2024-11": {
+      "1": 918
+    },
+    "2024-12": {
+      "1": 482
+    },
+    "2025-01": {
+      "1": 1440
+    },
+    "2025-02": {
+      "1": 557
+    },
+    "2025-03": {
+      "1": 350
+    },
+    "2025-04": {
+      "1": 162
+    },
+    "2025-06": {
+      "0": 390,
+      "1": 281
+    },
+    "2025-07": {
+      "0": 2707,
+      "1": 837
+    },
+    "2025-08": {
+      "0": 2482,
+      "1": 860
+    },
+    "2025-09": {
+      "0": 2195,
+      "1": 422
+    },
+    "2025-10": {
+      "0": 3537,
+      "1": 3265
+    },
+    "2025-11": {
+      "0": 139,
+      "1": 1199
+    },
+    "2025-12": {
+      "0": 73
+    }
+  },
+  "hf_split_counts_sample": {
+    "counts": {
+      "train": 29933,
+      "test": 10067
+    },
+    "proportions": {
+      "train": 0.748325,
+      "test": 0.251675
+    }
+  },
+  "split": {
+    "status": "ok",
+    "seed": 57,
+    "test_positive_rate": 0.45402508829618804,
+    "test_fraction": 0.205275,
+    "n_train": 31789,
+    "n_test": 8211,
+    "domain_overlap_count": 0,
+    "random_split_domain_overlap_count": 1346,
+    "random_split_test_domains": 4742,
+    "random_split_test_domains_also_in_train": 1346,
+    "n_domains": 19399
+  },
+  "feature_overlap": {
+    "random_split_test_rows": 8000,
+    "random_split_test_rows_with_exact_train_feature_match": 3795,
+    "random_split_exact_feature_match_rate": 0.474375
+  },
+  "processed_path": "data/processed/phreshphish.parquet",
+  "invalid_url_rule": "Drop rows whose URL lacks an http(s) scheme or a hostname, or whose length exceeds 8000.",
+  "dedup_rule": "Sort by collection date and keep the earliest row for each exact URL.",
+  "cross_dataset_note": "These URL features are not the PhiUSIIL feature set. Cross-dataset evaluation is not performed in this phase."
+}

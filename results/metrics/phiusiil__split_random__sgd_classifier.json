@@ -1,0 +1,196 @@
+{
+  "dataset": "phiusiil",
+  "split": "split_random",
+  "model": "sgd_classifier",
+  "positive_class": "phishing (1)",
+  "metrics": {
+    "accuracy": 0.9994285714285714,
+    "precision": 0.9993309918046496,
+    "recall": 0.9993309918046496,
+    "f1": 0.9993309918046496,
+    "false_positive_rate": 0.0004986909362922329,
+    "support_positive": 5979,
+    "support_negative": 8021,
+    "confusion_matrix_labels": [
+      0,
+      1
+    ],
+    "confusion_matrix": [
+      [
+        8017,
+        4
+      ],
+      [
+        4,
+        5975
+      ]
+    ],
+    "true_negative": 8017,
+    "false_positive": 4,
+    "false_negative": 4,
+    "true_positive": 5975,
+    "roc_auc": 0.9999959547565797,
+    "train_seconds": 0.6086759710015031,
+    "predict_seconds": 0.020362363999083755,
+    "n_train": 56000,
+    "n_test": 14000
+  },
+  "params": {
+    "alpha": 0.0001,
+    "average": false,
+    "class_weight": "balanced",
+    "early_stopping": false,
+    "epsilon": 0.1,
+    "eta0": 0.01,
+    "fit_intercept": true,
+    "l1_ratio": 0.15,
+    "learning_rate": "optimal",
+    "loss": "log_loss",
+    "max_iter": 40,
+    "n_iter_no_change": 5,
+    "n_jobs": null,
+    "penalty": "l2",
+    "power_t": 0.5,
+    "random_state": 42,
+    "shuffle": true,
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "features": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "CharContinuationRate",
+    "TLDLegitimateProb",
+    "URLCharProb",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS",
+    "LineOfCode",
+    "LargestLineLength",
+    "HasTitle",
+    "DomainTitleMatchScore",
+    "URLTitleMatchScore",
+    "HasFavicon",
+    "Robots",
+    "IsResponsive",
+    "NoOfURLRedirect",
+    "NoOfSelfRedirect",
+    "HasDescription",
+    "NoOfPopup",
+    "NoOfiFrame",
+    "HasExternalFormSubmit",
+    "HasSocialNet",
+    "HasSubmitButton",
+    "HasHiddenFields",
+    "HasPasswordField",
+    "Bank",
+    "Pay",
+    "Crypto",
+    "HasCopyrightInfo",
+    "NoOfImage",
+    "NoOfCSS",
+    "NoOfJS",
+    "NoOfSelfRef",
+    "NoOfEmptyRef",
+    "NoOfExternalRef",
+    "TLD"
+  ],
+  "preprocessing_fit_on": "train split only",
+  "top_features": [
+    {
+      "feature": "num__IsHTTPS",
+      "value": 3.18948871027668
+    },
+    {
+      "feature": "num__LetterRatioInURL",
+      "value": 2.49319531112339
+    },
+    {
+      "feature": "num__NoOfSelfRef",
+      "value": 2.094583903944498
+    },
+    {
+      "feature": "num__SpacialCharRatioInURL",
+      "value": 1.9737033218072992
+    },
+    {
+      "feature": "num__NoOfImage",
+      "value": 1.8835593359625706
+    },
+    {
+      "feature": "num__DegitRatioInURL",
+      "value": 1.7623539895930078
+    },
+    {
+      "feature": "num__LineOfCode",
+      "value": 1.7575572300873705
+    },
+    {
+      "feature": "num__NoOfExternalRef",
+      "value": 1.5785832938107365
+    },
+    {
+      "feature": "num__LargestLineLength",
+      "value": 1.4715110569152985
+    },
+    {
+      "feature": "cat__TLD_com",
+      "value": 1.4595913261464593
+    },
+    {
+      "feature": "num__HasSocialNet",
+      "value": 1.457686697114473
+    },
+    {
+      "feature": "num__NoOfJS",
+      "value": 1.2871711188933335
+    },
+    {
+      "feature": "num__NoOfSubDomain",
+      "value": 1.078686676195462
+    },
+    {
+      "feature": "num__HasDescription",
+      "value": 0.9878728589524568
+    },
+    {
+      "feature": "num__HasCopyrightInfo",
+      "value": 0.9858246559304628
+    },
+    {
+      "feature": "num__NoOfCSS",
+      "value": 0.9246539278155752
+    },
+    {
+      "feature": "num__NoOfLettersInURL",
+      "value": 0.855312978606456
+    },
+    {
+      "feature": "num__URLCharProb",
+      "value": 0.8286976661975968
+    },
+    {
+      "feature": "num__HasTitle",
+      "value": 0.7872987013830979
+    },
+    {
+      "feature": "num__DomainTitleMatchScore",
+      "value": 0.7619261362742649
+    }
+  ]
+}

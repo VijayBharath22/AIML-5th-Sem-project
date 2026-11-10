@@ -1,0 +1,412 @@
+{
+  "dataset": "phreshphish",
+  "repo_id": "phreshphish/phreshphish",
+  "hf_page": "https://huggingface.co/datasets/phreshphish/phreshphish",
+  "paper_url": "https://arxiv.org/abs/2507.10854",
+  "download_date": "2026-11-10",
+  "columns_read": [
+    "sha256",
+    "url",
+    "label",
+    "date",
+    "source_file",
+    "hf_split"
+  ],
+  "columns_explicitly_not_read": [
+    "html",
+    "target",
+    "lang",
+    "lang_score"
+  ],
+  "n_shards": 77,
+  "n_rows_retrieved": 666315,
+  "shard_stats": [
+    {
+      "file": "data/test-000.parquet",
+      "rows": 1000,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-001.parquet",
+      "rows": 5236,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-002.parquet",
+      "rows": 5759,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-003.parquet",
+      "rows": 6558,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-004.parquet",
+      "rows": 7098,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-005.parquet",
+      "rows": 7645,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-006.parquet",
+      "rows": 8111,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-007.parquet",
+      "rows": 8506,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-008.parquet",
+      "rows": 8767,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-009.parquet",
+      "rows": 9025,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-010.parquet",
+      "rows": 9175,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-011.parquet",
+      "rows": 9154,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-012.parquet",
+      "rows": 9241,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-013.parquet",
+      "rows": 9239,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-014.parquet",
+      "rows": 9339,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-015.parquet",
+      "rows": 9517,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-016.parquet",
+      "rows": 9599,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-017.parquet",
+      "rows": 9600,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-018.parquet",
+      "rows": 9628,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-019.parquet",
+      "rows": 9480,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/test-020.parquet",
+      "rows": 6383,
+      "hf_split": "test"
+    },
+    {
+      "file": "data/train-000.parquet",
+      "rows": 1000,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-001.parquet",
+      "rows": 5780,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-002.parquet",
+      "rows": 6506,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-003.parquet",
+      "rows": 7127,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-004.parquet",
+      "rows": 7425,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-005.parquet",
+      "rows": 7870,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-006.parquet",
+      "rows": 8077,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-007.parquet",
+      "rows": 8470,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-008.parquet",
+      "rows": 8662,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-009.parquet",
+      "rows": 8783,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-010.parquet",
+      "rows": 9031,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-011.parquet",
+      "rows": 9130,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-012.parquet",
+      "rows": 9260,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-013.parquet",
+      "rows": 9206,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-014.parquet",
+      "rows": 9233,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-015.parquet",
+      "rows": 9219,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-016.parquet",
+      "rows": 9342,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-017.parquet",
+      "rows": 9508,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-018.parquet",
+      "rows": 9408,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-019.parquet",
+      "rows": 9450,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-020.parquet",
+      "rows": 9423,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-021.parquet",
+      "rows": 9450,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-022.parquet",
+      "rows": 9388,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-023.parquet",
+      "rows": 9403,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-024.parquet",
+      "rows": 9445,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-025.parquet",
+      "rows": 9575,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-026.parquet",
+      "rows": 9583,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-027.parquet",
+      "rows": 9646,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-028.parquet",
+      "rows": 9666,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-029.parquet",
+      "rows": 9682,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-030.parquet",
+      "rows": 9692,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-031.parquet",
+      "rows": 9718,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-032.parquet",
+      "rows": 9637,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-033.parquet",
+      "rows": 9664,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-034.parquet",
+      "rows": 9685,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-035.parquet",
+      "rows": 9686,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-036.parquet",
+      "rows": 9630,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-037.parquet",
+      "rows": 9622,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-038.parquet",
+      "rows": 9605,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-039.parquet",
+      "rows": 9547,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-040.parquet",
+      "rows": 9563,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-041.parquet",
+      "rows": 9592,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-042.parquet",
+      "rows": 9602,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-043.parquet",
+      "rows": 9492,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-044.parquet",
+      "rows": 9518,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-045.parquet",
+      "rows": 9561,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-046.parquet",
+      "rows": 9606,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-047.parquet",
+      "rows": 9647,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-048.parquet",
+      "rows": 9513,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-049.parquet",
+      "rows": 9503,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-050.parquet",
+      "rows": 9621,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-051.parquet",
+      "rows": 9641,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-052.parquet",
+      "rows": 9634,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-053.parquet",
+      "rows": 9684,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-054.parquet",
+      "rows": 9483,
+      "hf_split": "train"
+    },
+    {
+      "file": "data/train-055.parquet",
+      "rows": 361,
+      "hf_split": "train"
+    }
+  ],
+  "interim_path": "data/interim/phreshphish_columns.parquet",
+  "version_note": "Dataset card v1.0.1 (2026-02-07) is the repository version inspected."
+}
