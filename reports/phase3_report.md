@@ -14,8 +14,8 @@ Phase 3 rigorously tested the three core research hypotheses regarding distribut
 | In-Distribution (Phase 2) | PhreshPhish (Random) | XGBoost | 0.9161 | 0.9065 | 0.9717 | 0.0730 | Baseline benchmark |
 | Domain Shift (Phase 2) | PhreshPhish (Disjoint) | XGBoost | 0.8887 | 0.8748 | 0.9503 | 0.0845 | Domain memorization lost |
 | Temporal Shift (Phase 3) | PhreshPhish (8-12 mo) | XGBoost | 0.8792 | 0.8313 | 0.9264 | 0.0698 | Attacker evolution decay |
-| Cross-Dataset A (Phase 3) | PhreshPhish -> PhiUSIIL | XGBoost | 0.3872 | 0.5583 | 0.4521 | 0.9850 | Benchmark artifact mismatch |
-| Cross-Dataset B (Phase 3) | PhiUSIIL -> PhreshPhish | XGBoost | 0.4148 | 0.5864 | 0.4263 | 0.8920 | Benchmark artifact mismatch |
+| Cross-Dataset A (Phase 3) | PhreshPhish -> PhiUSIIL | XGBoost | 0.3926 | 0.5638 | 0.2752 | 1.0000 | Benchmark artifact mismatch |
+| Cross-Dataset B (Phase 3) | PhiUSIIL -> PhreshPhish | XGBoost | 0.4148 | 0.5864 | 0.3618 | 1.0000 | Benchmark artifact mismatch |
 
 ## 3. Visual Summaries
 

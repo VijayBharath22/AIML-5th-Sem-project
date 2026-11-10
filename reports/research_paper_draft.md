@@ -41,8 +41,8 @@ Machine learning systems for phishing URL detection are typically evaluated usin
 #### Table 2: Bidirectional Cross-Dataset Transfer (Identical 15 Lexical Features)
 | Training Dataset | Evaluation Dataset | Model | Accuracy | F1-Score | ROC-AUC | False Positive Rate |
 |---|---|---|---:|---:|---:|---:|
-| PhreshPhish | PhiUSIIL | XGBoost | 0.3872 | 0.5583 | 0.4521 | 0.9850 |
-| PhiUSIIL | PhreshPhish | XGBoost | 0.4148 | 0.5864 | 0.4263 | 0.8920 |
+| PhreshPhish | PhiUSIIL | XGBoost | 0.3926 | 0.5638 | 0.2752 | 1.0000 |
+| PhiUSIIL | PhreshPhish | XGBoost | 0.4148 | 0.5864 | 0.3618 | 1.0000 |
 
 #### Table 3: Adaptation Strategies Under Constrained Label Budgets (Evaluation Stream N=18,314)
 | Strategy | Model | Budget | Updates | F1-Score | Recovery % | Accuracy | FPR | Adaptation Time |

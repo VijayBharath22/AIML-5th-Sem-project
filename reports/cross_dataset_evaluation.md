@@ -28,9 +28,9 @@ This experiment evaluates cross-dataset generalizability between two independent
 
 ### Key Findings:
 1. **Catastrophic Transfer Collapse:**
-   - **Train on PhreshPhish -> Test on PhiUSIIL:** Random Forest accuracy collapses to **38.72%** (F1: 0.5583, ROC-AUC: 0.4521).
-   - **Train on PhiUSIIL -> Test on PhreshPhish:** Random Forest accuracy collapses to **41.48%** (F1: 0.5864, ROC-AUC: 0.4263).
-   - Both directions result in **sub-random discrimination** (ROC-AUC < 0.50).
+   - **Train on PhreshPhish -> Test on PhiUSIIL:** Random Forest accuracy collapses to **38.86%** (F1: 0.5597, ROC-AUC: 0.4383); XGBoost accuracy collapses to **39.26%** (F1: 0.5638, ROC-AUC: 0.2752).
+   - **Train on PhiUSIIL -> Test on PhreshPhish:** Random Forest accuracy collapses to **41.42%** (F1: 0.5857, ROC-AUC: 0.4298); XGBoost accuracy collapses to **41.48%** (F1: 0.5864, ROC-AUC: 0.3618).
+   - Both directions result in **severe failure and near-total false positives** (FPR = 1.0000 for tree models).
 2. **Root Cause Analysis (Structural Benchmark Artifacts):**
    - In PhiUSIIL, 100% of legitimate URLs are clean homepage root domains (`path_length == 0`, `n_subdirectories == 0`).
    - In PhreshPhish, legitimate URLs are crawled from deep web pages with average path lengths of 35 and 2–3 subdirectories.

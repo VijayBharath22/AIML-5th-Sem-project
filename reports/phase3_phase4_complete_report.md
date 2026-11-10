@@ -36,8 +36,8 @@ Phishing attacks evolve continuously to bypass static machine learning detection
 | In-Distribution (Phase 2) | PhreshPhish (Random Split) | XGBoost | 0.9161 | 0.9065 | 0.9717 | 0.0730 | - | - |
 | Domain Shift (Phase 2) | PhreshPhish (Domain-Disjoint) | XGBoost | 0.8887 | 0.8748 | 0.9503 | 0.0845 | - | - |
 | Temporal Shift (Phase 3) | PhreshPhish (8-12 mo Gap, Static) | XGBoost | 0.8792 | 0.8313 | 0.9264 | 0.0698 | 0 | 0 |
-| Cross-Dataset A (Phase 3) | PhreshPhish -> PhiUSIIL (15 feat) | XGBoost | 0.3872 | 0.5583 | 0.4521 | 0.9850 | - | - |
-| Cross-Dataset B (Phase 3) | PhiUSIIL -> PhreshPhish (15 feat) | XGBoost | 0.4148 | 0.5864 | 0.4263 | 0.8920 | - | - |
+| Cross-Dataset A (Phase 3) | PhreshPhish -> PhiUSIIL (15 feat) | XGBoost | 0.3926 | 0.5638 | 0.2752 | 1.0000 | - | - |
+| Cross-Dataset B (Phase 3) | PhiUSIIL -> PhreshPhish (15 feat) | XGBoost | 0.4148 | 0.5864 | 0.3618 | 1.0000 | - | - |
 | Periodic Retrain 1% (Phase 4) | PhreshPhish Stream (1% Budget) | XGBoost | 0.8817 | 0.8345 | 0.9272 | 0.0670 | 5 | 183 |
 | Periodic Retrain 5% (Phase 4) | PhreshPhish Stream (5% Budget) | XGBoost | 0.8834 | 0.8372 | 0.9281 | 0.0669 | 5 | 916 |
 | Periodic Retrain 10% (Phase 4) | PhreshPhish Stream (10% Budget) | XGBoost | 0.8823 | 0.8363 | 0.9279 | 0.0693 | 5 | 1832 |
