@@ -1,12 +1,12 @@
 {
   "project_title": "Drift-Aware Phishing URL Detection Under Temporal and Cross-Dataset Distribution Shifts Using Machine Learning",
-  "generated_at": "2026-11-10T19:55:25.337113+00:00",
+  "generated_at": "2026-11-10T20:04:23.537744+00:00",
   "environment": {
     "python_version": "3.14.10",
     "os_system": "Linux",
     "os_release": "7.3.3-200.fc44.x86_64",
     "machine": "x86_64",
-    "git_commit": "ba67f4c62e1f56f49f9b6c5788705daaa64367eb"
+    "git_commit": "3db9bd0665150e6855d6ba303182473c949878cd"
   },
   "random_seeds": [
     42,

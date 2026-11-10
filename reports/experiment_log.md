@@ -84,3 +84,9 @@ Verification: `{"checked_result_files": 16, "mismatches": [], "passed": true}`
   - Compute reduction verified: Drift-triggered adaptation cut measured compute by 80.26% (0.096s vs 0.487s).
   - Target leakage guardrail verified: `URLSimilarityIndex` confirmed excluded in config.
   - Final Scientific Verdict: **Scientifically Defensible With Documented Limitations.**
+# Phase 5 Synthesis Refresh — 2026-11-11
+
+- Regenerated the authoritative summary, registry (128 entries), manifest, nine figures, final paper, master report, and reproduction guide from saved Phase 1–4 outputs.
+- Validation: 20/20 checks passed, including temporal prediction parity and measured 80.26% adaptation compute reduction. Phase 1–4 experiments were not rerun.
+- Reproduction: `python -m src.experiments.run_phase5`; validation only: `python -m src.experiments.run_phase5 --validate-only`.
+
