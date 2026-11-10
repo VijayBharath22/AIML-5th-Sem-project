@@ -172,3 +172,4 @@ During the audit, a minor discrepancy was identified where draft text in `report
 | Adaptation Causal Order | Verified | None | Confirmed forward evaluation precedes label revelation |
 | Adaptation Compute Savings | Verified | None | Confirmed 80.26% measured runtime reduction |
 | Report Metric Alignment | Corrected | Low | Aligned narrative text across reports with exact CSV tables |
+
